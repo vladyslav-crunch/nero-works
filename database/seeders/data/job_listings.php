@@ -3,23 +3,23 @@
 return [
   [
     "title" => "Software Engineer",
-    "description" => "As a Software Engineer at Algorix, you will be responsible for designing, developing, and maintaining high-quality software applications. You will work closely with cross-functional teams to deliver scalable and efficient solutions that meet business needs. The role involves writing clean, maintainable code, participating in code reviews, and staying current with industry trends to ensure our technology stack remains cutting-edge.",
+    "description" => "As a Software Engineer at Accspot, you will be responsible for designing, developing, and maintaining high-quality software applications. You will work closely with cross-functional teams to deliver scalable and efficient solutions that meet business needs. The role involves writing clean, maintainable code, participating in code reviews, and staying current with industry trends to ensure our technology stack remains cutting-edge.",
     "salary" => 90000,
-    "tags" => "development,coding,java,python",
+    "tags" => "development,coding,react,python",
     "job_type" => "Part-Time",
     "remote" => false,
     "requirements" => "Bachelors degree in Computer Science or related field, 3+ years of software development experience",
     "benefits" => "Healthcare, 401(k) matching, flexible work hours",
     "address" => "123 Main St",
-    "city" => "Albany",
-    "state" => "NY",
-    "zipcode" => "12201",
+    "city" => "Ukraine",
+    "state" => "IF",
+    "zipcode" => "76014",
     "contact_email" => "info@algorix.com",
-    "contact_phone" => "348-334-3949",
-    "company_name" => "Algorix",
-    "company_description" => "Algorix is a leading tech firm specializing in innovative software solutions and cutting-edge technology.",
-    "company_logo" => "logos/logo-algorix.png",
-    "company_website" => "https://algorix.com"
+    "contact_phone" => "+48-881-1488",
+    "company_name" => "Accspot",
+    "company_description" => "Accspot is a leading tech firm specializing in innovative software solutions and cutting-edge technology.",
+    "company_logo" => "logos/LOGO.png",
+    "company_website" => "https://accspot.com"
   ],
   [
     "title" => "Marketing Specialist",

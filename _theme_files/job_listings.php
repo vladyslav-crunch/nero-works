@@ -16,10 +16,10 @@ return [
     "zipcode" => "12201",
     "contact_email" => "info@algorix.com",
     "contact_phone" => "348-334-3949",
-    "company_name" => "Algorix",
+    "company_name" => "Accspot",
     "company_description" => "Algorix is a leading tech firm specializing in innovative software solutions and cutting-edge technology.",
-    "company_logo" => "logos/logo-algorix.png",
-    "company_website" => "https://algorix.com"
+    "company_logo" => "logos/LOGO.png",
+    "company_website" => "https://accspot.com"
   ],
   [
     "title" => "Marketing Specialist",
