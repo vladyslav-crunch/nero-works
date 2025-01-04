@@ -14,22 +14,26 @@
             <x-nav-link url="/jobs" :active="request()->is('jobs')">
                 All jobs
             </x-nav-link>
-            <x-nav-link url="jobs/saved" :active="request()->is('jobs/saved')">
-                Saved jobs
-            </x-nav-link>
-            <x-nav-link url="login" :active="request()->is('login')">
-                Login
-            </x-nav-link>
-            <x-nav-link url="register" :active="request()->is('register')">
-                Login
-            </x-nav-link>
-            <x-nav-link url="dashboard" :active="request()->is('dashboard')" icon="gauge">
-                Dashboard
-            </x-nav-link>
+            @auth
+                <x-nav-link url="jobs/saved" :active="request()->is('jobs/saved')">
+                    Saved jobs
+                </x-nav-link>
+                <x-nav-link url="dashboard" :active="request()->is('dashboard')" icon="gauge">
+                    Dashboard
+                </x-nav-link>
+                <x-logout-button />
+                <x-button-link url='/jobs/create' icon='edit'>
+                    Create Job
+                </x-button-link>
+            @else
+                <x-nav-link url="login" :active="request()->is('login')">
+                    Login
+                </x-nav-link>
+                <x-nav-link url="register" :active="request()->is('register')">
+                    Register
+                </x-nav-link>
 
-            <x-button-link url='/jobs/create' icon='edit'>
-                Create Job
-            </x-button-link>
+            @endauth
         </nav>
         <button id="hamburger" class="text-white md:hidden flex items-center">
             <i class="fa fa-bars text-2xl"></i>
@@ -38,12 +42,16 @@
     <!-- Mobile Menu -->
     <nav id="mobile-menu" class="hidden md:hidden bg-blue-900 text-white mt-5 pb-4 space-y-2">
         <x-nav-link url="/jobs" :mobile=true :active="request()->is('jobs')">All jobs</x-nav-link>
-        <x-nav-link url="jobs/saved" :mobile=true :active="request()->is('jobs/saved')">Saved jobs</x-nav-link>
-        <x-nav-link url="login" :mobile=true :active="request()->is('login')">Login</x-nav-link>
-        <x-nav-link url="register" :mobile=true :active="request()->is('register')">Register</x-nav-link>
-        <x-nav-link url="dashboard" :active="request()->is('dashboard')" :mobile=true icon="gauge">Dashboard</x-nav-link>
-        <x-button-link url='/jobs/create' icon='edit' :block="true">
-            Create Job
-        </x-button-link>
+        @auth
+            <x-nav-link url="jobs/saved" :mobile=true :active="request()->is('jobs/saved')">Saved jobs</x-nav-link>
+            <x-nav-link url="dashboard" :active="request()->is('dashboard')" :mobile=true icon="gauge">Dashboard</x-nav-link>
+            <x-logout-button />
+            <x-button-link url='/jobs/create' icon='edit' :block="true">
+                Create Job
+            </x-button-link>
+        @else
+            <x-nav-link url="login" :mobile=true :active="request()->is('login')">Login</x-nav-link>
+            <x-nav-link url="register" :mobile=true :active="request()->is('register')">Register</x-nav-link>
+        @endauth
     </nav>
 </header>
