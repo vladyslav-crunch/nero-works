@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="grid grid-cols-1 md:grid-cols-1 md:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <section class="md:col-span-3">
             <div class="rounded-lg shadow-md bg-white p-3">
                 <div class="flex justify-between items-center">
@@ -13,9 +13,9 @@
                                 class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded">Edit</a>
                             <!-- Delete Form -->
                             <form method="POST" action="{{ route('jobs.destroy', $job->id) }}"
-                                onsubmit="return confirm('Are your sure you want to delete this job?')">
+                                onsubmit="return confirm('Are you sure that you want to delete this job?')">
                                 @csrf
-                                @method('delete')
+                                @method('DELETE')
                                 <button type="submit" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded">
                                     Delete
                                 </button>
@@ -33,7 +33,7 @@
                     </p>
                     <ul class="my-4 bg-gray-100 p-4">
                         <li class="mb-2">
-                            <strong>Job Type:</strong>{{ $job->job_type }}
+                            <strong>Job Type:</strong> {{ $job->job_type }}
                         </li>
                         <li class="mb-2">
                             <strong>Remote:</strong> {{ $job->remote ? 'Yes' : 'No' }}
@@ -46,7 +46,7 @@
                         </li>
                         @if ($job->tags)
                             <li class="mb-2">
-                                <strong>Tags: </strong>{{ ucwords(str_replace(',', ', ', $job->tags)) }}
+                                <strong>Tags:</strong> {{ ucwords(str_replace(',', ', ', $job->tags)) }}
                             </li>
                         @endif
                     </ul>
@@ -71,19 +71,8 @@
                         </p>
                     </div>
                 @endif
-                <p class="my-5">
-                    Put "Job Application" as the subject of your email
-                    and attach your resume.
-                </p>
-                <a href="mailto:{{ $job->contact_email }}"
-                    class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium cursor-pointer text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
-                    Apply Now
-                </a>
-            </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md mt-6">
-                <div id="map"></div>
-            </div>
+
         </section>
 
         <aside class="bg-white rounded-lg shadow-md p-3">
@@ -102,10 +91,33 @@
             @if ($job->company_website)
                 <a href="{{ $job->company_website }}" target="_blank" class="text-blue-500">Visit Website</a>
             @endif
-            <a href=""
-                class="mt-10 bg-blue-500 hover:bg-blue-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center"><i
-                    class="fas fa-bookmark mr-3"></i> Bookmark
-                Listing</a>
+
+            {{-- Bookmark Button --}}
+            @guest
+                <p class="mt-10 bg-gray-200 text-gray-700 font-bold w-full py-2 px-4 rounded-full text-center">
+                    <i class="fas fa-info-circle mr-3"></i> You must be logged in to bookmark a job
+                </p>
+            @else
+                <form method="POST"
+                    action="{{ auth()->user()->bookmarkedJobs()->where('job_id', $job->id)->exists()? route('bookmarks.destroy', $job->id): route('bookmarks.store', $job->id) }}"
+                    class="mt-10">
+                    @csrf
+                    @if (auth()->user()->bookmarkedJobs()->where('job_id', $job->id)->exists())
+                        @method('DELETE')
+                        <button
+                            class="bg-red-500 hover:bg-red-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center">
+                            <i class="fas fa-bookmark mr-3"></i> Remove Bookmark
+                        </button>
+                    @else
+                        <button
+                            class="bg-blue-500 hover:bg-blue-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center">
+                            <i class="fas fa-bookmark mr-3"></i> Bookmark Listing
+                        </button>
+                    @endif
+                </form>
+            @endguest
         </aside>
     </div>
 </x-layout>
+
+</script>

@@ -15,12 +15,9 @@
                 All jobs
             </x-nav-link>
             @auth
-                <x-nav-link url="jobs/saved" :active="request()->is('jobs/saved')">
+                <x-nav-link url="/bookmarks" :active="request()->is('jobs/bookmarks')">
                     Saved jobs
                 </x-nav-link>
-                {{-- <x-nav-link url="dashboard" :active="request()->is('dashboard')" icon="gauge">
-                    Dashboard
-                </x-nav-link> --}}
                 <x-logout-button />
                 <x-button-link url='/jobs/create' icon='edit'>
                     Create Job

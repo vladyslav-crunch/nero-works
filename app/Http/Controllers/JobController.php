@@ -13,7 +13,7 @@ class JobController extends Controller
     use AuthorizesRequests;
     public function index():View
     {
-        $jobs = Job::paginate(6);
+        $jobs = Job::latest()->paginate(6);
         return view('jobs.index')->with('jobs', $jobs);
     }
 
