@@ -57,7 +57,7 @@
                 </div>
 
                 {{-- Applicants --}}
-                {{-- <div class="mt-4 bg-gray-100 p-2">
+                <div class="mt-4 bg-gray-100 p-2">
                     <h4 class="text-lg font-semibold mb-2">Applicants</h4>
                     @forelse($job->applicants as $applicant)
                         <div class="py-2">
@@ -80,23 +80,23 @@
                                 </a>
                             </p>
                             {{-- Delete Applicant --}}
-                {{-- <form method="POST" action="{{ route('applicant.destroy', $applicant->id) }}"
-                    onsubmit="return confirm('Are you sure you want to delete this applicant?')">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="text-red-500 hover:text-red-700 text-sm">
-                        <i class="fas fa-trash"></i> Delete Applicant
-                    </button>
-                </form>
-        </div> --}}
+                            <form method="POST" action="{{ route('applicant.destroy', $applicant->id) }}"
+                                onsubmit="return confirm('Are you sure you want to delete this applicant?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-500 hover:text-red-700 text-sm">
+                                    <i class="fas fa-trash"></i> Delete Applicant
+                                </button>
+                            </form>
+                        </div>
+                    @empty
+                        <p class="text-gray-700 mb-5">No applicants for this job</p>
+                    @endforelse
+                </div>
             @empty
-                <p class="text-gray-700 mb-5">No applicants for this job</p>
+                <p class="text-gray-700">You have not job listings</p>
             @endforelse
         </div>
-        {{-- @empty
-        <p class="text-gray-700">You have not job listings</p> --}}
-        {{-- @endforelse
-        </div> --}}
     </section>
     <x-bottom-banner />
 </x-layout>
