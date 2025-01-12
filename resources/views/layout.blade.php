@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +11,7 @@
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="//unpkg.com/alpinejs" defer></script>
-    <title>{{ $title ?? 'Nero Works | Find and list jobs' }}</title>
+    <title>{{ $title ?? 'Neroworks | Find and list jobs' }}</title>
 </head>
 
 <body class="bg-gray-100">

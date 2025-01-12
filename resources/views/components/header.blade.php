@@ -4,9 +4,12 @@
 
 <header class="bg-blue-900 text-white p-4">
     <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-3xl font-semibold">
-            <a href="{{ url('/') }}">Nero Works</a>
-        </h1>
+        <a href="/">
+            <div class="logo flex items-center">
+                <img class="h-12" src="{{ asset('images/NeroWorks.svg') }}" alt="Logo">
+                <div class="logo-title ml-5 text-2xl">Neroworks </div>
+            </div>
+        </a>
         <nav class="hidden md:flex items-center space-x-4">
             <x-nav-link url="/" :active="request()->is('/')">
                 Home
@@ -34,10 +37,10 @@
                     </a>
                 </div>
             @else
-                <x-nav-link url="login" :active="request()->is('login')">
+                <x-nav-link url="/login" :active="request()->is('login')">
                     Login
                 </x-nav-link>
-                <x-nav-link url="register" :active="request()->is('register')">
+                <x-nav-link url="/register" :active="request()->is('register')">
                     Register
                 </x-nav-link>
 
@@ -58,8 +61,8 @@
                 Create Job
             </x-button-link>
         @else
-            <x-nav-link url="login" :mobile=true :active="request()->is('login')">Login</x-nav-link>
-            <x-nav-link url="register" :mobile=true :active="request()->is('register')">Register</x-nav-link>
+            <x-nav-link url="/login" :mobile=true :active="request()->is('login')">Login</x-nav-link>
+            <x-nav-link url="/register" :mobile=true :active="request()->is('register')">Register</x-nav-link>
         @endauth
     </nav>
 </header>
