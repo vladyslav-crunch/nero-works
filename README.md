@@ -76,11 +76,6 @@ Contributions are welcome! If you’d like to improve this project, feel free to
 
 ---
 
-## License  
-This project is licensed under the [MIT License](LICENSE).  
-
----
-
 ## Contact  
 For any questions or suggestions, please contact:  
 - **GitHub**: [Vladyslav Crunch](https://github.com/vladyslav-crunch)  
