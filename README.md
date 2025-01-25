@@ -83,7 +83,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact  
 For any questions or suggestions, please contact:  
-- **Email**: support@neroworks.com  
-- **GitHub**: [Neroworks](https://github.com/vladyslav-crunch)  
-
+- **GitHub**: [Vladyslav Crunch](https://github.com/vladyslav-crunch)  
 ---  
